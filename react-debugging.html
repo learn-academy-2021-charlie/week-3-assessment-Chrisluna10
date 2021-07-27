@@ -53,8 +53,10 @@
             <>
               <h1>Draw a Card</h1>
               <Card
+              // added this.props to each fixing the first two errors.
                 drawCard={this.drawCard}
                 shuffle={this.shuffle}
+                hand={this.state.hand}
               />
             </>
           )
@@ -79,15 +81,17 @@
           }
           return(
             <>
-              <button onClick={}>
+              <button onClick={this.props.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              <button onClick={this.props.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
                 {this.props.hand.map((card, index) => {
+                  // could not find the problem that made .map undefined. fixed problem during assessment review.
                   return (
+                    
                     <div style={cardStyles} key={index}>
                       {card}
                     </div>
